@@ -20,12 +20,14 @@
 ## 1 画出势能分布曲线
 
 势能分布为：
+
 $$
 V(x) = \begin{cases}
 1\times10^{-19}\cdot\cos\frac{2\pi}{a}x, -\frac{\pi}{2}\le\frac{2\pi}{a}x\le\frac{\pi}{2} \\
 0, elsewhere
 \end{cases}
 $$
+
 编写脚本`plot_field.m`:
 
 ```matlab
@@ -50,6 +52,7 @@ title('potential Energy of half cosine field');
 ## 2 至少画出前4条能带并对比带隙和能带曲线
 
 要利用特征根法求解布里渊区曲线，需要求以下方程的解：
+
 $$
 \det\begin{bmatrix}
 \cdots & \cdots & \cdots & \cdots & \cdots \\
@@ -59,9 +62,11 @@ $$
 \cdots & \cdots & \cdots & \cdots & \cdots \\
 \end{bmatrix} = 0
 $$
+
 给定k，可以得到N个E的解，N的数目由周期性势场的傅里叶展开决定。
 
 对此，我们先对势场进行傅里叶展开，得到各傅里叶系数（令$N=10$）：
+
 $$
 V_n = \frac{1}{P}\int_P \Re{V(x)}\cdot e^{-i\frac{2\pi nx}{P}} dx \\
 =\frac{1}{P}\int_P V(x) \cdot e^{-i\frac{2\pi nx}{P}} dx
@@ -178,7 +183,7 @@ ylabel('E/J');
 
 ![image-20230410232225338](https://s2.loli.net/2023/04/11/cLX5Dbgr8eUIvB6.png)
 
-对此计算$k=0$和$k=\frac{\pi}{a}$处的能量值：
+对此计算 $k=0$ 和 $k=\frac{\pi}{a}$ 处的能量值：
 
 ```matlab
 a = 5.43 * 10^(-10);
@@ -241,7 +246,7 @@ disp(gap_vec)
     0.4934    0.2271    0.0072    0.0416    0.0008    0.0179    0.0010    0.0099
 ```
 
-根据理论推导可知，带隙的大小为$2|V_n|$。将理论计算值和实际计算值进行对比：
+根据理论推导可知，带隙的大小为 $2|V_n|$ 。将理论计算值和实际计算值进行对比：
 
 ![image-20230411092503473](https://s2.loli.net/2023/04/11/XuafeKM6ygv9tj2.png)
 
@@ -271,26 +276,36 @@ disp(gap_vec)
 可见能量分布近似于抛物线。
 
 近自由电子下，零级解：
+
 $$
 E_k^0 = \frac{\hbar^2 k^2}{2m_0} +\bar V
 $$
+
 本征值的零级修正：
+
 $$
 E_k^{(0)} = \frac{\hbar^2k^2}{2m_0}
 $$
+
 本征值的一级修正：
+
 $$
 E_k^{(1)} = 0
 $$
+
 本征值的二级修正：
+
 $$
 E_k^{(2)} = \sum_{n\ne0} \frac{|V_n|^2}{\frac{\hbar^2}{2m_0}[k^2 - (k+\frac{2\pi}{a}n)^2]}
 $$
+
 则：
+
 $$
 E = \bar V + E_k^{(0)} + E_k^{(1)} + E_k^{(2)}
 $$
-使用近似比较在$\Delta k = \pm \frac{1}{10} \frac{2\pi}{a}$处的效果：
+
+使用近似比较在 $\Delta k = \pm \frac{1}{10} \frac{2\pi}{a}$ 处的效果：
 
 ![image-20230411141640283.png](https://s2.loli.net/2023/04/11/E8RywQ2fALK3oW6.png)
 
