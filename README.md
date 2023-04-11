@@ -1,7 +1,5 @@
 # 固体物理大作业——绘制布里渊区图景
 
-[TOC]
-
 ## 0 代码组织
 
 ```bash
@@ -14,8 +12,6 @@
 ├── plot_near_brillouin_with_near_free_electron.m # 使用近自由电子法绘制布里渊区
 └── README.md # 文档
 ```
-
-
 
 ## 1 画出势能分布曲线
 
@@ -65,7 +61,7 @@ $$
 
 给定k，可以得到N个E的解，N的数目由周期性势场的傅里叶展开决定。
 
-对此，我们先对势场进行傅里叶展开，得到各傅里叶系数（令$N=10$）：
+对此，我们先对势场进行傅里叶展开，得到各傅里叶系数（令 $N=10$ ）：
 
 $$
 V_n = \frac{1}{P}\int_P \Re{V(x)}\cdot e^{-i\frac{2\pi nx}{P}} dx \\
@@ -263,7 +259,7 @@ disp(gap_vec)
 
 可见，近自由电子得到的带隙与实际带隙相差较小。
 
-首先绘制出布里渊附近$\Delta k = \pm \frac{1}{10}\cdot \frac{2\pi}{a}$的能带曲线：
+首先绘制出布里渊附近 $\Delta k = \pm \frac{1}{10}\cdot \frac{2\pi}{a}$ 的能带曲线：
 
 ![image-20230411093621903](https://s2.loli.net/2023/04/11/4ZDFkaiV17AlxH8.png)
 
